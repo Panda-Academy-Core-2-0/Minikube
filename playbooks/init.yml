@@ -57,25 +57,6 @@
       line: 'source <(kubectl completion bash)'
       insertafter: EOF
 
-  - name: Create kubernetes namespace
-    kubernetes.core.k8s:
-      name: argocd
-      api_version: v1
-      kind: Namespace
-      state: present
-
-  - name: Deploy ArgoCD 
-    kubernetes.core.k8s:
-      state: present
-      namespace: argocd
-      src: resources/argocd.yaml
-
-  - name: Deploy ArgoCD Image Updater
-    kubernetes.core.k8s:
-      state: present
-      namespace: argocd
-      src: resources/argocd-image-updater.yaml
-
   roles:
     - packages
     - geerlingguy.docker
