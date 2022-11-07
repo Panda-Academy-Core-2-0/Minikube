@@ -16,6 +16,7 @@
         - pip
         - conntrack
         - bash-completion
+        - etcd-client
       state: present
      
   - name: Install kubernetes python package
